@@ -1,25 +1,30 @@
 #include <stdio.h>
 
-// Partition function for Quick Sort
+// Partition using the first element as pivot
 int partition(int arr[], int low, int high) {
-    int pivot = arr[high]; // Choosing the last element as pivot
-    int i = (low - 1);
-
-    for (int j = low; j < high; j++) {
-        if (arr[j] <= pivot) {
-            i++;
+    int pivot = arr[low];
+    int i = low + 1;
+    int j = high;
+    
+    while (i <= j) {
+        while (i <= high && arr[i] <= pivot) i++;
+        while (arr[j] > pivot) j--;
+        if (i < j) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
         }
     }
-    int temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
-    return (i + 1);
+
+    // Swap pivot to its correct position
+    int temp = arr[low];
+    arr[low] = arr[j];
+    arr[j] = temp;
+
+    return j;
 }
 
-// Quick Sort function
+// Quick Sort
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
@@ -29,14 +34,13 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-// Function to print the array
+// Print Array
 void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++)
         printf("%d ", arr[i]);
     printf("\n");
 }
 
-// Driver code
 int main() {
     int arr[] = {55, 28, 35, 78, 110, 48, 88};
     int size = sizeof(arr) / sizeof(arr[0]);
@@ -51,6 +55,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
