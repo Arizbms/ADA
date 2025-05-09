@@ -8,17 +8,20 @@ void knapsack(int n, int p[], int w[], int W) {
         index[i] = i;
     }
 
-    // Sort index array by p[i]/w[i] ratio in descending order (simple bubble sort)
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
+    // Selection sort based on profit/weight ratio (descending)
+     for (int i = 0; i < n - 1; i++) {
+        int maxIdx = i;
+        for (int j = i + 1; j < n; j++) {
             float r1 = (float)p[index[j]] / w[index[j]];
-            float r2 = (float)p[index[j + 1]] / w[index[j + 1]];
-            if (r1 < r2) {
-                int temp = index[j];
-                index[j] = index[j + 1];
-                index[j + 1] = temp;
+            float r2 = (float)p[index[maxIdx]] / w[index[maxIdx]];
+            if (r1 > r2) {
+                maxIdx = j;
             }
         }
+        // Swap index[i] and index[maxIdx]
+        int temp = index[i];
+        index[i] = index[maxIdx];
+        index[maxIdx] = temp;
     }
 
     float totalValue = 0.0;
