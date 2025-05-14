@@ -68,20 +68,21 @@ int main() {
     // Output the topological order
     printf("Topological order:\n");
     for (i = 0; i < n; i++) {
-        printf("%d ", t[i] + 1);  // Add 1 to node index for human-friendly output
+        printf("%d ", t[i]);  
     }
     
     return 0;
 }
 
 
-
-
 O/p:
-Enter the no. of nodes: 5
+
+Enter the number of nodes: 5
+Enter the adjacency matrix:
 0 0 1 0 0
 1 0 0 1 0
 0 0 0 0 1
 0 0 1 0 1
 0 0 0 0 0
-Solution:1 3 0 2 4
+Topological order:
+1 3 0 2 4
