@@ -33,7 +33,7 @@ int main() {
 
 void kruskal(int cost[10][10], int n) {
     int parent[10];
-    int count = 0, k = 0;
+    int count = 0;
     sum = 0;
 
     // Initialize parent array
@@ -61,9 +61,8 @@ void kruskal(int cost[10][10], int n) {
             int root_v = find(parent, v);
             parent[root_u] = root_v;
 
-            mst[k][0] = u;
-            mst[k][1] = v;
-            k++;
+            mst[count][0] = u;
+            mst[count][1] = v;
             sum += min;
             count++;
 
