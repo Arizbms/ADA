@@ -31,7 +31,7 @@ int knapsack(int n, int W, int wt[], int val[]) {
     int w = W;
     printf("Selected items: ");
     for (int i = n; i > 0 && res > 0; i--) {
-        if (res == K[i-1][w])
+        if (res == K[i-1][w])                     If the value at K[i][w] is the same as the one in the row above, then the current item (i-1) was not chosen.Because including an item would have increased the value.
             continue; // Item not included
         else {
             // Item included
