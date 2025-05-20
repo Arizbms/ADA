@@ -37,8 +37,8 @@ void knapsack(int n, int p[], int w[], int W) {
                    idx + 1, w[idx], p[idx], curW);
         } else {
             // Take fractional item
-            float fraction = (float)curW / w[idx];
-            totalValue += p[idx] * fraction;
+            float fraction = (float) p[idx] / w[idx]; //profit by weight ratio
+            totalValue += curW* fraction;
             printf("Added %.0f%% (%d, %d) of object %d.\n",
                    fraction * 100, w[idx], p[idx], idx + 1);
             curW = 0;
