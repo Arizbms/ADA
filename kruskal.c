@@ -82,13 +82,12 @@ int find(int parent[10], int i) {
 
 
 
-O/p:
 Enter the number of vertices: 4
 Enter the cost adjacency matrix:
-0 1 5 2
-1 0 99 99
-5 99 0 3
-2 99 3 0
+99 1 5 2
+1 99 99 99
+5 99 99 3
+2 99 3 99
 Edges of the minimal spanning tree:
-(0, 1) (0, 3) (2, 3)
+(0, 1) (0, 3) (2, 3) 
 Sum of minimal spanning tree: 6
