@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define INF 999
+#define INF 99
 
 int cost[10][10], n, mst[10][2], sum;
 
